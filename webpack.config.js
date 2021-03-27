@@ -38,13 +38,15 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.png|jpg $/,
-				use: [{
-					'loader': 'file-loader',
+				test: /\.eot|svg|ttf|woff|png|jpg|webp$/,
+				use: {
+					loader: 'url-loader',
 					options: {
-						name: 'assets/[hash].[ext]'
-					}	
-				}]
+						limit: 5000,
+						outputPath: 'asset',
+						name: '[name].[ext]'
+					}
+				},
 			}
 		]
 	},
