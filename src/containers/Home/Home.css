@@ -1,0 +1,16 @@
+.Home {
+	background-color: #141414;
+}
+
+
+.Home__mainVideo {
+	background: red;
+	height: calc(90vh - 5rem);
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.Home__category {
+	color: white;
+	padding: 0 2rem;
+}
