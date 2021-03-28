@@ -3,6 +3,7 @@ import React from 'react'
 import Carousel from '../../components/Carousel'
 import CarouselItem from '../../components/CarouselItem'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 import './Home.css'
 
@@ -50,6 +51,7 @@ const Home = () => {
 					<CarouselItem />
 				</Carousel>
 			</main>
+			<Footer />
 		</>
 	)
 }

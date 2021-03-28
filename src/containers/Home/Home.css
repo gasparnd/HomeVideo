@@ -7,10 +7,10 @@
 	background: red;
 	height: calc(90vh - 5rem);
 	width: 100%;
-	margin-bottom: 1rem;
 }
 
 .Home__category {
+	margin-top: 1.5rem;
 	color: white;
 	padding: 0 2rem;
 }

@@ -1,0 +1,23 @@
+.Footer {
+	background-color: #141414;
+	display: flex;
+	padding: 2rem;
+	align-items: center;
+}
+
+.Footer__links {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.Footer__links-link {
+	color: #e5e5e5;
+	text-decoration: none;
+}
+
+.Footer__links-link:hover {
+	text-decoration: underline;
+	color: #b3b3b3;
+}
