@@ -1,0 +1,40 @@
+.carousel {
+    overflow: scroll;
+    padding: 1rem;
+    position: relative;
+    scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+    margin-bottom: 1.5rem;
+}
+
+.carousel__container {
+    white-space: nowrap;
+    margin: 2.5rem 0;
+    padding-bottom: .7rem;
+}
+
+.carousel::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.carousel::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.carousel::-webkit-scrollbar-button:increment,.carousel::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.carousel::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.carousel::-webkit-scrollbar-track {
+    border-radius: 10px;  
+} 
