@@ -4,6 +4,7 @@ import Carousel from '../../components/Carousel'
 import CarouselItem from '../../components/CarouselItem'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Player from '../../components/Player'
 
 import './Home.css'
 
@@ -13,9 +14,7 @@ const Home = () => {
 			<Header />
 			<main className="Home">
 				<section className="Home__mainVideo">
-					<video className="Home__mainVideo-video">
-						<source src="#"></source>
-					</video>
+					<Player />
 				</section>
 				<h2 className="Home__category">Originals</h2>
 				<Carousel >
