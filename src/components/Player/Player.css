@@ -3,11 +3,11 @@
 }
 
 .isCover {
-    height: calc(90vh - 5rem);
+    height: calc(90vh - 5rem); 
 }
 
 .isPage {
-    height: calc(100vh - 5rem);
+    height: 100vh;
 }
 
 video {
@@ -29,6 +29,14 @@ video:hover .Player-back {
     left: 5px;
     z-index: 2;
     font-size: 12px;
+}
+
+.back {
+    display: block;
+}
+
+.notBack {
+    display: none;
 }
 
 .Player-back button {

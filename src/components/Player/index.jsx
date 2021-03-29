@@ -4,11 +4,16 @@ import classNames from 'classnames'
 import './Player.css'
 
 const Player = props => {
-	const { isCover, isPage } = props
+	const { isCover, isPage, back, notBack } = props
 
 	const playerClass = classNames('Player', {
 		isCover,
 		isPage
+	})
+
+	const backButton = classNames('Player-back', {
+		back,
+		notBack
 	})
 
 	return(
@@ -17,7 +22,7 @@ const Player = props => {
 				<source src="#" type="video/mp4" />
 			</video>
 
-			<div className="Player-back">
+			<div className={ backButton }>
 				<button type="button" onClick={ () => props.history.goBack() }>
 					Regresar
 				</button>

@@ -14,7 +14,7 @@ const Home = () => {
 			<Header />
 			<main className="Home">
 				<section className="Home__mainVideo">
-					<Player isCover />
+					<Player isCover notBack/>
 				</section>
 				<h2 className="Home__category">Originals</h2>
 				<Carousel >
