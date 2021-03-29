@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './CarouselItem.css'
 
@@ -9,7 +10,9 @@ const CarouselItem = ({data}) => {
 			<div className="carousel-item__details">
 				<div className="carousel-item-icon">
 					<div className="item-icon">
-						<i className="icon-play"></i>
+						<Link to="/watch">
+							<i className="icon-play"></i>
+						</Link>
 					</div>
 					<div className="item-icon">
 						<i className="icon-plus"></i>

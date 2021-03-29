@@ -1,10 +1,18 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import './Player.css'
 
-const Player = () => {
+const Player = props => {
+	const { isCover, isPage } = props
+
+	const playerClass = classNames('Player', {
+		isCover,
+		isPage
+	})
+
 	return(
-		<div className="Player">
+		<div className={ playerClass }>
 			<video controls autoPlay>
 				<source src="#" type="video/mp4" />
 			</video>

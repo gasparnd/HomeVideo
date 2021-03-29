@@ -1,6 +1,13 @@
 .Player {
     position: relative;
+}
+
+.isCover {
     height: calc(90vh - 5rem);
+}
+
+.isPage {
+    height: calc(100vh - 5rem);
 }
 
 video {
