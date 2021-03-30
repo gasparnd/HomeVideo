@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Carousel from '../../components/Carousel'
 import CarouselItem from '../../components/CarouselItem'
@@ -8,7 +9,9 @@ import Player from '../../components/Player'
 
 import './Home.css'
 
-const Home = () => {
+const Home = props => {
+	const { trends, originals, myList } = props
+
 	return(
 		<>
 			<Header />
@@ -16,43 +19,44 @@ const Home = () => {
 				<section className="Home__mainVideo">
 					<Player isCover notBack/>
 				</section>
+
 				<h2 className="Home__category">Originals</h2>
 				<Carousel >
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
+					{originals.map( el => (
+						<CarouselItem {...el} key={el.id} />
+					))}
 				</Carousel>
-				<h2 className="Home__category">My List</h2>
-				<Carousel >
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-				</Carousel>
+
+				{myList.lenght > 0 && 
+					<>
+						<h2 className="Home__category">My List</h2>
+						<Carousel >
+						{myList.map( el => (
+							<CarouselItem {...el} key={el.id} />
+						))}
+						</Carousel>
+					</>
+				}
+
 				<h2 className="Home__category">Trends</h2>
 				<Carousel >
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
-					<CarouselItem />
+					{trends.map( el => (
+						<CarouselItem {...el} key={el.id} />
+					))}
 				</Carousel>
+
 			</main>
 			<Footer />
 		</>
 	)
 }
 
-export default Home
+const mapStateToProps = state => {
+	return {
+		trends: state.trends,
+		originals: state.originals,
+		myList: state.myList,
+	}
+}
+
+export default connect(mapStateToProps, null)(Home)

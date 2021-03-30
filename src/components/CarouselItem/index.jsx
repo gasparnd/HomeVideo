@@ -3,24 +3,27 @@ import { Link } from 'react-router-dom'
 
 import './CarouselItem.css'
 
-const CarouselItem = ({data}) => {
+const CarouselItem = props => {
+
+	const { cover, title, duration, year, contentRating, id } = props
+
 	return(
 		<div className="carousel-item">
-			<img className="carousel-item__img" src="https://static.toiimg.com/photo/72975551.cms" alt="name" />
+			<img className="carousel-item__img" src={cover} alt={title} />
 			<div className="carousel-item__details">
 				<div className="carousel-item-icon">
-					<div className="item-icon">
-						<Link to="/watch">
+					<Link to={ `/player/${id}` }>
+						<div className="item-icon">
 							<i className="icon-play"></i>
-						</Link>
-					</div>
+						</div>
+					</Link>
 					<div className="item-icon">
 						<i className="icon-plus"></i>
 					</div>
 				</div>
-				<p className="carousel-item__details--title">Titulo</p>
+				<p className="carousel-item__details--title">{title}</p>
 				<p className="carousel-item__details--video-details">
-					2020 +16 1:30
+					{`${year} ${contentRating} ${duration} minuts`}
 				</p>
 			</div>
 		</div>

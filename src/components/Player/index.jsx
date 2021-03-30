@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import './Player.css'
 
 const Player = props => {
-	const { isCover, isPage, back, notBack } = props
+	const { isCover, isPage, back, notBack, source } = props
 
 	const playerClass = classNames('Player', {
 		isCover,
@@ -19,7 +19,7 @@ const Player = props => {
 	return(
 		<div className={ playerClass }>
 			<video controls autoPlay>
-				<source src="#" type="video/mp4" />
+				<source src={source || ""} type="video/mp4" />
 			</video>
 
 			<div className={ backButton }>
