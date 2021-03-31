@@ -1,32 +1,22 @@
 import React from 'react'
 import classNames from 'classnames'
+import { Redirect } from 'react-router-dom'
 
 import './Player.css'
 
 const Player = props => {
-	const { isCover, isPage, back, notBack, source } = props
+	const { isCover, isPage, source } = props
 
 	const playerClass = classNames('Player', {
 		isCover,
 		isPage
 	})
 
-	const backButton = classNames('Player-back', {
-		back,
-		notBack
-	})
-
 	return(
 		<div className={ playerClass }>
 			<video controls autoPlay>
-				<source src={source || ""} type="video/mp4" />
+				<source src={source} type="video/mp4" />
 			</video>
-
-			<div className={ backButton }>
-				<button type="button" onClick={ () => props.history.goBack() }>
-					Regresar
-				</button>
-			</div>
 		</div>
 	)
 }

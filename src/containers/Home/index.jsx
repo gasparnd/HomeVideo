@@ -17,7 +17,7 @@ const Home = props => {
 			<Header />
 			<main className="Home">
 				<section className="Home__mainVideo">
-					<Player isCover notBack/>
+					<Player isCover />
 				</section>
 
 				<h2 className="Home__category">Originals</h2>
