@@ -3,14 +3,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Home from '../containers/Home'
 import Reproductor from '../containers/Reproductor'
-import Header from '../components/Header'
+import NotFound from '../components/NotFound'
 
 const App = () => (
 	<BrowserRouter>
 		<Switch>
 			<Route exact path='/' component={Home} />
 			<Route exact path='/player/:id' component={Reproductor} />
-			<Route component={Header} />
+			<Route component={NotFound} />
 		</Switch>
 	</BrowserRouter>
 )

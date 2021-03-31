@@ -1,0 +1,27 @@
+.NotFound {
+	background-color: #141414;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.NotFound h3 {
+	color: white;
+	font-size: 4rem;
+}
+
+.NotFound p {
+	color: white;
+	font-size: 2rem;
+	margin: 2.5rem 0 2rem;
+}
+
+.NotFound a {
+	text-decoration: none;
+	background-color: #23b5b5;
+	padding: 1rem;
+	border-radius: 5px;
+	color: black;
+}

@@ -106,7 +106,7 @@ const initialState = {
         "duration": 148,
         "cover": "http://dummyimage.com/800x600.png/306880/ffffff",
         "description": "Vestibulum ac est lacinia nisi venenatis tristique",
-        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
+        "source": "https://www.youtube.com/embed/ApXoWvfEYVU"
       },
       {
         "id": 9,

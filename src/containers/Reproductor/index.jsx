@@ -6,21 +6,21 @@ import { getVideoSource } from '../../actions'
 import Player from '../../components/Player'
 import Carousel from '../../components/Carousel'
 import CarouselItem from '../../components/CarouselItem'
+import VideoNotFound from '../../components/VideoNotFound'
 import Footer from '../../components/Footer'
 
 import './Reproductor.css'
 
 const Reproductor = props => {
 	const { playing, originals } = props
-	const hasPaying = Object.keys(playing).length > 0
 	const { id } = props.match.params
-	console.log(id)
 
 	useEffect(() => {
-		console.log('OK')
 		props.getVideoSource(id)
 	}, [])
 
+	const hasPaying = Object.keys(playing).length > 0
+	
 	return hasPaying ?(
 		<>
 			<section className="Reproductor">
@@ -37,7 +37,8 @@ const Reproductor = props => {
 			</section>
 			<Footer />
 		</>
-	) : 'Loading...'
+
+	) : <VideoNotFound />
 }
 
 const mapStateToProps = state => {

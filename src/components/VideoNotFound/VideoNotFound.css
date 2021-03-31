@@ -1,0 +1,18 @@
+.VideoNotFound {
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.VideoNotFound h2 {
+	color: white;
+	font-size: 4rem;
+}
+
+.VideoNotFound p {
+	color: white;
+	font-size: 1.8rem
+}
