@@ -27,12 +27,12 @@ const Home = props => {
 					))}
 				</Carousel>
 
-				{myList.lenght > 0 && 
+				{myList.length > 0 && 
 					<>
 						<h2 className="Home__category">My List</h2>
 						<Carousel >
 						{myList.map( el => (
-							<CarouselItem {...el} key={el.id} />
+							<CarouselItem isList {...el} key={el.id} />
 						))}
 						</Carousel>
 					</>

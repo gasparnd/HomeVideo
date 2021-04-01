@@ -1,11 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import { setFavorite, deleteFavorite } from '../../actions'
 
 import './CarouselItem.css'
 
 const CarouselItem = props => {
 
-	const { cover, title, duration, year, contentRating, id } = props
+	const { cover, title, duration, year, contentRating, id, isList } = props
+
+	const handleFavorite = () => {
+		props.setFavorite({
+			cover, title, year, contentRating, duration, id
+		})
+	}
+
+	const handleDeleteFavorite = id => {
+		props.deleteFavorite(id)
+	}
 
 	return(
 		<div className="carousel-item">
@@ -17,9 +30,17 @@ const CarouselItem = props => {
 							<i className="icon-play"></i>
 						</div>
 					</Link>
-					<div className="item-icon">
-						<i className="icon-plus"></i>
-					</div>
+					{ !isList &&
+						<div className="item-icon" onClick={ handleFavorite }>
+							<i className="icon-plus"></i>
+						</div>
+					}
+					
+					{ isList &&
+						<div className="item-icon" onClick={ () => handleDeleteFavorite(id) }>
+							<i className="icon-delete"></i>
+						</div>
+					}
 				</div>
 				<p className="carousel-item__details--title">{title}</p>
 				<p className="carousel-item__details--video-details">
@@ -30,4 +51,9 @@ const CarouselItem = props => {
 	)
 }
 
-export default CarouselItem
+const mapDispatchToProps = {
+	setFavorite,
+	deleteFavorite,
+}
+
+export default connect(null, mapDispatchToProps)(CarouselItem)

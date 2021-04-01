@@ -37,10 +37,11 @@
 }
 
 .item-icon {
-  background: #23b5b5;
+  background: rgba(25,25,25, 0.7);
+  border: 1px solid white;
   border-radius: 50px;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,7 +3,7 @@
 	align-items: center;
 	background-color: rgb(20, 20, 20);
 	color: #23b5b5;
-	height: 5rem;
+	height: 4.5rem;
 	padding: 0 2rem;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .profile__image {
-	width: 50px;
+	width: 40px;
 }
 
 .isMobile {
