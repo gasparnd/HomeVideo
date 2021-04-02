@@ -1,7 +1,10 @@
 .Login {
 	height: 100vh;
-	display: flex;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: 2;
+	grid-row: 1/2;
+	justify-items: center;
 	align-items: center;
 }
 

@@ -1,8 +1,27 @@
 .SignUp {
 	height: 100vh;
-	display: flex;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: 2;
+	grid-row: 1/2;
+	justify-items: center;
 	align-items: center;
+}
+
+.Back-btn {
+	justify-self: start;
+	padding: 0 1rem;
+}
+
+.Back-btn button {
+	background: rgba(225,225,225, 0.2);
+	border: 1px solid white;
+	border-radius: 5px;
+	justify-self: start;
+	padding: 1rem;
+	font-size: 1rem;
+	color: white;
+	cursor: pointer;
 }
 
 .SignUp__container {

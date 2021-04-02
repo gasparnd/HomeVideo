@@ -24,6 +24,11 @@ const SignUp = props => {
 	return(
 		<>
 			<section className="SignUp">
+				<div className="Back-btn">
+					<button onClick={ () => history.back() } type="button">
+						back
+					</button>
+				</div>
 				<div className="SignUp__container">
 
 					<h2 className="SignUp__title">SignUp</h2>
