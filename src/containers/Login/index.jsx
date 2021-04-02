@@ -9,7 +9,6 @@ import './Login.css'
 const Login = props => {
 
 	const [ form, setForm ] = useState({
-		name: '',
 		mail: '',
 		remember: '',
 	})
@@ -36,14 +35,7 @@ const Login = props => {
 					<h2 className="Login__title">Login</h2>
 
 					<form className="Login__form">
-
-						<input 
-							className="Login__form--input" 
-							type="text" 
-							name="name" 
-							placeholder="Name"
-							onChange={ handleChange }
-						/>
+					
 						<input 
 							className="Login__form--input" 
 							type="email" 
@@ -68,7 +60,7 @@ const Login = props => {
 						<button type="button" 
 							className="Login__form--button" 
 							name="button">
-							Accept
+							Login
 						</button>
 
 					</form>	

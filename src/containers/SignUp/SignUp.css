@@ -1,0 +1,57 @@
+.SignUp {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.SignUp__container {
+	border: 1px solid white;
+	height: 70vh;
+	padding: 2rem;
+	border-radius: 5px;
+	background: rgba(225, 225, 225, .2);
+}
+
+.SignUp__title {
+	color: white;
+	font-size: 1.6rem;
+	margin-bottom: 2rem;
+}
+
+.SignUp__form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.SignUp__form--input {
+	background: rgba(225, 225, 225, .6);
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: .7rem;
+	outline: none;
+	font-size: 1rem;
+	font-family: "Lato", sans-serif;
+}
+
+.SignUp__form--button {
+	width: 100%;
+	background: #23b5b5;
+	border: 1px solid #23b5b5;
+	border-radius: 5px;
+	outline: none;
+	color: black;
+	padding: .7rem;
+	cursor: pointer;
+}
+
+.SignUp__remember {
+	color: #23b5b5;
+	margin-top: 2rem;
+	display: block;
+}
+
+.SignUp__remember:hover {
+	text-decoration: underline;
+}
