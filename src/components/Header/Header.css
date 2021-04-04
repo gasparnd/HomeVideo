@@ -18,7 +18,7 @@
 
 .Header__navigation {
 	display: flex;
-	padding-left: 5px;
+	padding-left: 2rem;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -53,7 +53,7 @@
 	position: absolute;
 	text-align: right;
 	margin: 0;
-	right: 40px;
+	right: 2.5rem;
 	top:3.5rem;
 	padding-right:0;
 	z-index: 4;
@@ -94,16 +94,7 @@
 	}
 
 	.Header__navigation--main ul {
-		display: none;
-		list-style: none;
-		padding: 0;
-		position: absolute;
-		text-align: right;
-		margin: 0;
-		right: 40px;
-		top:3.5rem;
-		padding-right:0;
-		z-index: 4;
+		right: 5.5rem;
 	}
 
 	.Header__navigation {
