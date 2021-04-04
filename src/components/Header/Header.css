@@ -93,6 +93,19 @@
 		justify-content: space-between;
 	}
 
+	.Header__navigation--main ul {
+		display: none;
+		list-style: none;
+		padding: 0;
+		position: absolute;
+		text-align: right;
+		margin: 0;
+		right: 40px;
+		top:3.5rem;
+		padding-right:0;
+		z-index: 4;
+	}
+
 	.Header__navigation {
 		display: flex;
 		padding-left: 5px;
