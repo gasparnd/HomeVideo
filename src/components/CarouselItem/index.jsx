@@ -31,7 +31,7 @@ const CarouselItem = props => {
 					</a>
 					{ !isList &&
 						<div className="item-icon" onClick={ handleFavorite }>
-							<i className="icon-plus"></i>
+							<i className="icon-add"></i>
 						</div>
 					}
 					

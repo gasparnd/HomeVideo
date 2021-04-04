@@ -17,35 +17,22 @@
 }
 
 .Header__navigation {
-	margin-left: 2rem;
+	display: flex;
+	padding-left: 5px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	display: flex;
 	align-items: center;
 }
 
-.Header__navigation--pages-link {
+.NavBar__pages-link {
 	text-decoration: none;
 	color: #e5e5e5;
 	margin: 5px;
 }
 
-.Header__navigation--pages-link:hover {
+.NavBar__pages-link:hover {
 	color: #b3b3b3;
-}
-
-.mobile {
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 50%;
-	background: red;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 
 .Header__navigation--main {
@@ -55,6 +42,38 @@
 .Header__navigation--main-profile {
 	border-radius: 50px;
 	overflow: hidden;
+	width: 40px;
+	height: 40px;
+}
+
+.Header__navigation--main ul {
+	display: none;
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	text-align: right;
+	margin: 0;
+	right: 40px;
+	top:3.5rem;
+	padding-right:0;
+	z-index: 4;
+}
+
+.Header__navigation--main:hover ul, ul:hover {
+	display: block;
+}
+
+.Header__navigation--main li {
+	margin: 10px 0;
+}
+
+.Header__navigation--main li a {
+	color: white;
+	text-decoration: none;
+}
+
+.Header__navigation--main li a:hover {
+	text-decoration: underline;
 }
 
 .Header__navigation--main-search {
@@ -64,15 +83,61 @@
 	cursor: pointer;
 }
 
+.profile__image {
+	width: 40px;
+	height: 40px;
+}
+
+@media screen and (max-width: 720px) {
+	.Header {
+		justify-content: space-between;
+	}
+
+	.Header__navigation {
+		display: flex;
+		padding-left: 5px;
+		width: max-content;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+/*  MOBILE  */
+
 .icon {
 	color: white;
 	font-size: 1.5rem;
 }
 
-.profile__image {
-	width: 40px;
+.isMobile {
+	background: rgba(0,0,0,.8);
+	position: fixed;
+	z-index: 20;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 50vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 0.3s;
 }
 
-.isMobile {
+.isMobile a {
+	color: white;
+	font-size: 1.7rem;
+}
 
+.open {
+	left: -100vw;
+}
+
+.burger-menu {
+	color: white;
+	font-weight: bold;
+	font-size: 1.4rem;
+	margin-left: 2rem;
 }

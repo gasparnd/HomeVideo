@@ -176,7 +176,8 @@ const initialState = {
     ]
 }
 
-const store = createStore(reducer, initialState)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducer, initialState, composeEnhancers())
 
 
 ReactDOM.render(

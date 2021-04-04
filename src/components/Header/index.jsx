@@ -1,41 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
+import NavBar from './NavBar'
 
 import Logo from '../../assets/statics/home-video-logo.png'
 import './Header.css'
 
-const handleBurgerMenu = ev => {
-	alert('OPEN')
-}
-
 const Header = props => {
 
-	const ipad = screen.width <= 767
-	console.log(ipad)
+	const media = window.matchMedia('(max-width: 720px)')
+
+	const [ open, setOpen ] = useState(true)
+	const [ mobile, setMobile ] = useState(false)
+
+	const handleClick = () => {
+		setOpen(!open)
+	}
+
+	const validation = () => {
+		setMobile(!mobile)
+	}
+
+	useEffect(() => {
+		if(media.matches) {
+			setMobile(true)
+		}
+		media.addListener(validation)
+	})
 
 	return(
 		<header className="Header">
 			<div className="Header__logoContainer">	
-				<img className="Header__logoContainer--logo" width="100" src={Logo} alt="HomeVideo" />
+				<Link to="/home">
+					<img className="Header__logoContainer--logo" 
+						width="100" src={Logo} alt="HomeVideo" 
+					/>
+				</Link>				
 			</div>
-			<nav className="Header__navigation">
-				<div className={ !ipad ? "Header__navigation--pages" : "mobile"}>
-					<a className="Header__navigation--pages-link" href="/home">
-						Home
-					</a>
-					<a className="Header__navigation--pages-link" href="/movies">
-						Movies
-					</a>
-					<a className="Header__navigation--pages-link" href="/series">
-						Series
-					</a>
-					<a className="Header__navigation--pages-link" href="/my-list">
-						My List
-					</a>
-					<a className="Header__navigation--pages-link" href="/new">
-						New for you
-					</a>
-				</div>
+			<div className="Header__navigation">
+				{mobile ?
+					<NavBar open={open} isMobile />
+					:
+					<NavBar isDesktop />
+				}
 				<div className="Header__navigation--main">
 					<div className="Header__navigation--main-search">
 						<i className="icon icon-search"></i>
@@ -43,11 +50,17 @@ const Header = props => {
 					<div className="Header__navigation--main-profile">
 						<img className="profile__image" src="https://avatars.githubusercontent.com/u/36377522?v=4" alt="name" />
 					</div>
-					{ ipad &&
-						<div onClick={ handleBurgerMenu }>MO</div>
-					}
+					<ul>
+						<li><Link to="/">Profile</Link></li>
+						<li><Link to="/login">Sign out</Link></li>
+					</ul>
 				</div>
-			</nav>
+
+				{ mobile && 
+					<i className="burger-menu icon-menu" onClick={ handleClick }></i>
+				}
+			</div>
+
 		</header>
 	)
 }
