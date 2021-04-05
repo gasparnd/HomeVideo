@@ -35,12 +35,16 @@
 	color: #b3b3b3;
 }
 
+.Header__navigation--main-container {
+	display: flex;
+}
+
 .Header__navigation--main {
 	display: flex;
 }
 
 .Header__navigation--main-profile {
-	border-radius: 50px;
+	border-radius: 5px;
 	overflow: hidden;
 	width: 40px;
 	height: 40px;
@@ -53,9 +57,11 @@
 	position: absolute;
 	text-align: right;
 	margin: 0;
-	right: 2.5rem;
+	right: 2rem;
 	top:3.5rem;
 	padding-right:0;
+	background: rgba(0,0,0,.8);
+	padding: .5rem 1rem;
 	z-index: 4;
 }
 
