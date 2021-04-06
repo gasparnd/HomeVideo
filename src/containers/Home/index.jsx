@@ -6,6 +6,7 @@ import CarouselItem from '../../components/CarouselItem'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Player from '../../components/Player'
+import SearchInput from '../../components/SearchInput'
 
 import './Home.css'
 
@@ -16,9 +17,8 @@ const Home = props => {
 		<>
 			<Header />
 			<main className="Home">
-				<section className="Home__mainVideo">
-					<Player isCover />
-				</section>
+				
+				<SearchInput />
 
 				<h2 className="Home__category">Originals</h2>
 				<Carousel >

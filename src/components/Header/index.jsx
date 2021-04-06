@@ -44,9 +44,6 @@ const Header = props => {
 					<NavBar isDesktop />
 				}
 				<div className="Header__navigation--main-container">
-					<div className="Header__navigation--main-search">
-						<i className="icon icon-search"></i>
-					</div>
 					<div className="Header__navigation--main">
 						<div className="Header__navigation--main-profile">
 							<img className="profile__image" src="https://avatars.githubusercontent.com/u/36377522?v=4" alt="name" />
