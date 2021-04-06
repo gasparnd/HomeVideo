@@ -2,17 +2,41 @@
 	height: 50vh;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
+	padding-left: 1rem;
 	gap: 3rem;
 }
 
 .VideoNotFound h2 {
 	color: white;
-	font-size: 4rem;
+	font-size: 3rem;
 }
 
 .VideoNotFound p {
 	color: white;
 	font-size: 1.8rem
 }
+
+@media screen and (max-width: 720px) {
+	.VideoNotFound {
+		height: 50vh;
+		display: flex;
+		justify-content: flex-end;
+		padding-left: 1rem;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.VideoNotFound h2 {
+		color: white;
+		font-size: 2.5rem;
+	}
+
+	.VideoNotFound p {
+		color: white;
+		font-size: 1.2rem
+	}
+}
+
