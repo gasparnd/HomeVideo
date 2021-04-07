@@ -1,7 +1,7 @@
 const reducer = (state, action) => {
+	const concat = state.originals.concat(state.trends)
 	switch (action.type) {
 		case 'GET_VIDEO_SOURCE':
-			const concat = state.originals.concat(state.trends)
 			const video = concat.find( item => item.id === Number(action.payload))
 			return{
 				...state,
@@ -18,6 +18,20 @@ const reducer = (state, action) => {
 			return{
 				...state,
 				myList: state.myList.filter( item => item.id !== action.payload)
+			}
+		case 'SET_RESPONSE':
+
+			if(action.payload === '') {
+				return {
+					...state,
+					searchResults: []
+				}
+			}
+			
+			return {
+				...state,
+				searchResults: concat.filter( item => item.title.toLowerCase()
+					.includes(action.payload))
 			}
 		default:
 			return state

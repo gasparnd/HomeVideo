@@ -1,6 +1,6 @@
 export const getVideoSource = payload => ({
 	type: 'GET_VIDEO_SOURCE',
-	payload
+	payload,
 })
 
 export const setFavorite = payload => ({
@@ -10,5 +10,10 @@ export const setFavorite = payload => ({
 
 export const deleteFavorite = payload => ({
 	type: 'DELETE_FAVORITE',
-	payload
+	payload,
+})
+
+export const setResponse = payload => ({
+	type: 'SET_RESPONSE',
+	payload,
 })
