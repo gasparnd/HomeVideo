@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { setRegister } from '../../actions'
+
 import Footer from '../../components/Footer'
 
 import './SignUp.css'
@@ -11,7 +13,6 @@ const SignUp = props => {
 	const [ form, setForm ] = useState({
 		name: '',
 		mail: '',
-		remember: '',
 	})
 
 	const handleChange = e => {
@@ -19,6 +20,12 @@ const SignUp = props => {
 			...form,
 			[e.target.name]: e.target.value
 		})
+	}
+
+	const handleSubmit = e => {
+		e.preventDefault()
+		props.setRegister(form)
+		props.history.push('/')
 	}
 
 	return(
@@ -33,7 +40,7 @@ const SignUp = props => {
 
 					<h2 className="SignUp__title">SignUp</h2>
 
-					<form className="SignUp__form">
+					<form className="SignUp__form" onSubmit={ handleSubmit }>
 
 						<input 
 							className="SignUp__form--input" 
@@ -56,7 +63,7 @@ const SignUp = props => {
 							placeholder="Password"
 						/>
 
-						<button type="button" 
+						<button type="submit" 
 							className="SignUp__form--button" 
 							name="button">
 							Sign Up
@@ -73,4 +80,8 @@ const SignUp = props => {
 	)
 }
 
-export default connect(null, null)(SignUp)
+const mapDispatchToProps = {
+	setRegister,
+}
+
+export default connect(null, mapDispatchToProps)(SignUp)

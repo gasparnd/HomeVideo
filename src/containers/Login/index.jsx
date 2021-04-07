@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { userLogin } from '../../actions'
+
 import Footer from '../../components/Footer'
 
 import './Login.css'
 
 const Login = props => {
-
+	const { userLogin } = props
 	const [ form, setForm ] = useState({
 		mail: '',
-		remember: '',
+		remember: false,
 	})
 
 	const handleChange = e => {
@@ -23,8 +25,15 @@ const Login = props => {
 	const handleClick = e => {
 		setForm({
 			...form,
-			remember: true
+			remember: !form.remember
 		})
+		userLogin(form)
+	}
+
+	const handleSubmit = e => {
+		e.preventDefault()
+		props.userLogin(form)
+		props.history.push('/')
 	}
 
 	return(
@@ -39,7 +48,7 @@ const Login = props => {
 
 					<h2 className="Login__title">Login</h2>
 
-					<form className="Login__form">
+					<form className="Login__form" onSubmit={handleSubmit}>
 					
 						<input 
 							className="Login__form--input" 
@@ -62,7 +71,7 @@ const Login = props => {
 							/> Remember me
 						</label>
 
-						<button type="button" 
+						<button type="submit" 
 							className="Login__form--button" 
 							name="button">
 							Login
@@ -79,4 +88,8 @@ const Login = props => {
 	)
 }
 
-export default connect(null, null)(Login)
+const mapDispatchToProps = {
+	userLogin,
+}
+
+export default connect(null, mapDispatchToProps)(Login)

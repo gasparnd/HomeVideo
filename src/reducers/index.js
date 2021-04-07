@@ -1,6 +1,21 @@
 const reducer = (state, action) => {
 	const concat = state.originals.concat(state.trends)
 	switch (action.type) {
+		case 'USER_LOGIN': 
+			return{
+				...state,
+				user: action.payload
+			}
+		case 'SET_REGISTER':
+			return{
+				...state,
+				user: action.payload
+			}
+		case 'USER_LOG_OUT':
+			return{
+				...state,
+				user: action.payload
+			}
 		case 'GET_VIDEO_SOURCE':
 			const video = concat.find( item => item.id === Number(action.payload))
 			return{

@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import gravatar from '../../utils/gravatar'
+import { userLogOut } from '../../actions'
+
 
 import NavBar from './NavBar'
 
+import ProfileIcon from '../../assets/statics/user-icon.png'
 import Logo from '../../assets/statics/home-video-logo.png'
 import './Header.css'
 
 const Header = props => {
+	const { user } = props
+
+	const hasUser = Object.keys(user).length > 0
 
 	const media = window.matchMedia('(max-width: 720px)')
 
@@ -19,6 +28,10 @@ const Header = props => {
 
 	const validation = () => {
 		setMobile(!mobile)
+	}
+
+	const handleLogOut = e => {
+		props.userLogOut({})
 	}
 
 	useEffect(() => {
@@ -46,11 +59,23 @@ const Header = props => {
 				<div className="Header__navigation--main-container">
 					<div className="Header__navigation--main">
 						<div className="Header__navigation--main-profile">
-							<img className="profile__image" src="https://avatars.githubusercontent.com/u/36377522?v=4" alt="name" />
+							{hasUser ?
+								<img className="profile__image" src={gravatar(user.mail)} alt={user.name} />
+								:
+								<img className="profile__image" src={ProfileIcon} alt="Profile Icon" />
+							}
 						</div>
 						<ul>
-							<li><Link to="/">Profile</Link></li>
-							<li><Link to="/login">Sign out</Link></li>
+							{hasUser ?
+								<>
+									<li><Link to="/">Profile</Link></li>
+									<li><Link to="/login" onClick={ handleLogOut }>Sign out</Link></li>
+								</>
+								:
+								<>
+									<li><Link to="/login">Sign in</Link></li>
+								</>
+							}
 						</ul>
 					</div>
 				</div>
@@ -64,4 +89,14 @@ const Header = props => {
 	)
 }
 
-export default Header
+const mapStateToProps = state => {
+	return{
+		user: state.user
+	}
+}
+
+const mapDispatchToProps = {
+	userLogOut,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
