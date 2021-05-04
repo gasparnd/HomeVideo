@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import reducer from './frontend/reducers'
+import reducer from './reducers'
 
-import App from './frontend/routes/App'
+import App from './routes/App'
 
-import './frontend/assets/styles/global.css'
+import './assets/styles/global.css'
 
 const initialState = {
 	"user": {},
