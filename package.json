@@ -13,6 +13,7 @@
   "author": "Gaspar Dolcemascolo <gaspardolcemascolo@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "asset-require-hook": "^1.2.0",
     "babel-eslint": "^10.1.0",
     "classnames": "^2.3.1",
     "dotenv": "^8.2.0",

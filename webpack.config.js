@@ -43,8 +43,8 @@ module.exports = {
 				use: {
 					loader: 'url-loader',
 					options: {
-						limit: 5000,
-						outputPath: 'asset',
+						limit: 1000,
+						outputPath: 'assets',
 						name: '[name].[ext]'
 					}
 				},
