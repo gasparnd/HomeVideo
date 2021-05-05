@@ -10,6 +10,7 @@ import { StaticRouter } from 'react-router-dom'
 import serverRoutes from '../frontend/routes/serverRoutes'
 import reducer from '../frontend/reducers'
 import initialState from '../frontend/initialState'
+import helmet from 'helmet'
 
 dotenv.config()
 
@@ -29,6 +30,11 @@ if(ENV === 'development') {
 
 	app.use(webpackDevMiddleware(compiler, serverConfig))
 	app.use(webpackHotMiddleware(compiler))
+} else {
+	app.use(express.static(`${__dirname}/public`))
+	app.use(helmet())
+	app.use(helmet.permittedCrossDomainPolicies())
+  	app.disable('x-powered-by')
 }
 
 const setResponse = (html, preloadedState) => {

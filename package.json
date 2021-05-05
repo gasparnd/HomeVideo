@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "build": "webpack-cli --config webpack.config.js",
     "start:dev": "nodemon src/server/index"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "history": "^4.10.1",
     "ignore-styles": "^5.0.1",
     "md5": "^2.3.0",

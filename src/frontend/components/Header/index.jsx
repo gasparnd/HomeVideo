@@ -18,7 +18,7 @@ const Header = props => {
 
 	const hasUser = Object.keys(user).length > 0
 
-	//const media = window.matchMedia('(max-width: 720px)')
+	//const media = matchMedia('screen and (max-width: 480px)')
 
 	const [ open, setOpen ] = useState(true)
 	const [ mobile, setMobile ] = useState(false)
@@ -38,8 +38,8 @@ const Header = props => {
 	useEffect(() => {
 		/*if(media.matches) {
 			setMobile(true)
-		}*/
-		//media.addListener(validation)
+		}
+		media.addListener(validation)*/
 	})
 
 	return(
