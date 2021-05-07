@@ -40,28 +40,33 @@ if(ENV === 'development') {
 const setResponse = (html, preloadedState) => {
 	return(`
 		<!DOCTYPE html>
-		<html lang="en">
-			<head>
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<meta charset="utf-8">
-				<link rel="stylesheet" href="assets/app.css" type="text/css" />
-				<title>Home Video</title>
-			</head>
-			<body>
-				<div id="app">${html}</div>
-				<script>
-					window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
-            			/</g,
-            			'\\u003c'
-          			)}
-				</script>
-				<script src="assets/app.js" type="text/javascript"></script>
-			</body>
-		</html>
+			<html lang="en">
+				<head>
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<meta charset="utf-8">
+					<link rel="stylesheet" href="assets/app.css" type="text/css" />
+					<title>Home Video</title>
+				</head>
+				<body>
+					<div id="app">${html}</div>
+					<script>
+						window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+            				/</g,
+            				'\\u003c'
+          				)}
+					</script>
+					<script src="assets/app.js" type="text/javascript"></script>
+				</body>
+			</html>
 	`)
 }
 
 const renderApp = (req, res) => {
+	if(ENV != "development"){
+
+        res.set("Content-Security-Policy", 
+        	"default-src'self'; img-src'self' https://dummyimage.com; script-src'self''sha256-xgXo3/qL+rdiFoc10qGzDhNUQy5kzBpO9vJyTN/xAds='; style-src-elem 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com");
+ 	}
 	const store = createStore(reducer, initialState)
 	const preloadedState = store.getState()
 	const html = renderToString(

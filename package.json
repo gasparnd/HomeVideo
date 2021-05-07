@@ -34,8 +34,7 @@
     "react-router": "^5.2.0",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
-    "webpack": "^5.36.2"
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -53,7 +52,8 @@
     "react-hot-loader": "^4.13.0",
     "sass-loader": "^11.0.1",
     "url-loader": "^4.1.1",
-    "webpack-cli": "^4.5.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-middleware": "^3.7.3",
     "webpack-dev-server": "^3.11.2",
     "webpack-hot-middleware": "^2.25.0"
