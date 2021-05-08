@@ -1,9 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-require('dotenv').config(
-
-)
+const CompressionWebpackPluign = require('compression-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+require('dotenv').config()
 
 const isDev = (process.env.ENV === 'development')
 const entry = ['./src/frontend/index.js']
@@ -16,9 +17,30 @@ module.exports = {
 	entry: entry,
 	output: {
 		path: path.resolve(__dirname, 'src/server/public'),
-		filename: 'assets/app.js',
+		filename: isDev ? 'assets/app.js' : 'assets/app-[chunkhash].js',
 		publicPath: '/',
 	},
+	optimization: {
+	    minimize: true,
+	    minimizer: [new TerserPlugin()],
+	    splitChunks: {
+	    	chunks: 'async',
+	    	cacheGroups: {
+	    		vendors: {
+	    			name: 'vendors',
+	    			chunks: 'all',
+	    			reuseExistingChunk: true,
+	    			priority: 1,
+	    			filename: isDev ? 'assets/vendor.js' : 'assets/vendor-[contentHash].js',
+	    			enforce: true,
+	    			test(module, chunks) {
+	    				const name = module.nameForCondition && module.nameForCondition()
+	    				return chunk => chunk => chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name)
+	    			}
+	    		}
+	    	}
+	    } 
+ 	},
 	resolve: {
 		extensions: ['.js', '.jsx']
 	},
@@ -31,12 +53,6 @@ module.exports = {
 				use: {
 					loader: 'babel-loader'
 				}
-			},
-			{
-				test: /\.html $/,
-				use: [{
-					loader: 'html-loader'
-				}]
 			},
 			{
 				test: /\.css|scss $/,
@@ -67,8 +83,15 @@ module.exports = {
 	plugins: [	
 		isDev ? new webpack.HotModuleReplacementPlugin() :
 			() => {},
+		!isDev ? new CompressionWebpackPluign({
+			test: /\.js$|\.css$/,
+			filename: '[path][base].gz'
+		}) :
+			() => {},
+		!isDev ? new WebpackManifestPlugin() :
+			() => {},
 		new MiniCssExtractPlugin({
-			filename: 'assets/app.css'
+			filename: isDev ? 'assets/app.css' : 'assets/app-[chunkhash].css'
 		})
 	]
 }
