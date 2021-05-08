@@ -1,9 +1,24 @@
 .Reproductor {
 	background-color: #141414;
+	height: 100vh;
+
 }
 
 .Suggestions__category {
 	margin-top: 1.5rem;
 	color: white;
 	padding: 0 2rem;
+}
+
+.Player {
+    position: relative;
+}
+
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
 }

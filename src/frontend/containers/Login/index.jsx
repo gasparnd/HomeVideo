@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { FaGoogle } from 'react-icons/fa'
+import { IoLogoTwitter } from 'react-icons/io'
 
 import { userLogin } from '../../actions'
 
@@ -70,6 +72,19 @@ const Login = props => {
 								onClick={ handleClick } 
 							/> Remember me
 						</label>
+
+						<div className='Login__container--social-media'>
+            				<div>
+              					<FaGoogle />
+              						{' '}
+									Login with Google
+            				</div>
+            				<div>
+             	 				<IoLogoTwitter />
+              					{' '}
+								Login with Twitter
+            				</div>
+          				</div>
 
 						<button type="submit" 
 							className="Login__form--button" 

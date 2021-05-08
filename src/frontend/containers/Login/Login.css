@@ -10,7 +10,7 @@
 
 .Login__container {
 	border: 1px solid white;
-	height: 70vh;
+	
 	padding: 2rem;
 	border-radius: 5px;
 	background: rgba(225, 225, 225, .2);
@@ -40,6 +40,15 @@
 
 .Login__form--label {
 	color: #e5e5e5;
+	cursor: pointer;
+}
+
+.Login__container--social-media {
+	color: #e5e5e5;
+}
+
+.Login__container--social-media div {
+	margin-bottom: 1rem;
 	cursor: pointer;
 }
 

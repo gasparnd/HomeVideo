@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { getVideoSource } from '../../actions'
-
-import Player from '../../components/Player'
+	
 import VideoNotFound from '../../components/VideoNotFound'
 import Footer from '../../components/Footer'
 
@@ -22,7 +21,9 @@ const Reproductor = props => {
 	return(
 		<>
 			<section className="Reproductor">
-				<Player source={playing.source} />
+				<video src={playing.source} controls>
+					<source src={playing.source} type="video/mp4" />
+				</video>
 			</section>
 			<Footer />
 		</>

@@ -1,5 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { 
+	FaPlay, 
+	FaPlus, 
+	FaTrash, 
+	IconContext } from "react-icons/fa"
 
 import { setFavorite, deleteFavorite } from '../../actions'
 
@@ -9,6 +14,7 @@ const CarouselItem = props => {
 
 	const { cover, title, duration, year, contentRating, id, isList } = props
 
+	let iconStyles = { color: "white", fontSize: "1.5em" }
 	const handleFavorite = () => {
 		props.setFavorite({
 			cover, title, year, contentRating, duration, id
@@ -26,18 +32,18 @@ const CarouselItem = props => {
 				<div className="carousel-item-icon">
 					<a className="styles-link" href={ `/player/${id}` }>
 						<div className="item-icon">
-							<i className="icon-play"></i>
+							<FaPlay />
 						</div>
 					</a>
 					{ !isList &&
 						<div className="item-icon" onClick={ handleFavorite }>
-							<i className="icon-add"></i>
+							<FaPlus />
 						</div>
 					}
 					
 					{ isList &&
 						<div className="item-icon" onClick={ () => handleDeleteFavorite(id) }>
-							<i className="icon-delete"></i>
+							<FaTrash />
 						</div>
 					}
 				</div>
