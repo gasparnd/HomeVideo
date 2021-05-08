@@ -74,3 +74,5 @@ yarn-error.log
 dist/
 
 src/server/public
+
+.next
