@@ -25,7 +25,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(passport.initialized())
+app.use(passport.initialize())
 app.use(passport.session())
 
 require('./utils/auth/strategies/basic')
@@ -136,14 +136,20 @@ app.post('/auth/sign-up', async (req, res, next) => {
 	const { body: user } = req
 
 	try {
-		await axios({
-			url: `${config.apiUrl}/api/auth/sign-up`,
+		const userData = await axios({
+			url: `${process.env.API_URL}/api/auth/sign-up`,
 			method: 'post',
-			data: user
+			data: {
+				'email': user.email,
+				'name': user.name,
+				'password': user.password
+			}
 		})
 
 		res.status(201).json({
-			message: 'user created'
+			name: req.body.name,
+			email: req.body.email,
+			id: userData.data.id
 		})
 	} catch(err) {
 		next(err)

@@ -13,6 +13,7 @@
   "author": "Gaspar Dolcemascolo <gaspardolcemascolo@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@hapi/boom": "^9.1.2",
     "asset-require-hook": "^1.2.0",
     "axios": "^0.21.1",

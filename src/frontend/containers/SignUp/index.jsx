@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { setRegister } from '../../actions'
+import { registerUser } from '../../actions'
 
 import Footer from '../../components/Footer'
 
@@ -24,8 +24,7 @@ const SignUp = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		props.setRegister(form)
-		props.history.push('/')
+		props.registerUser(form, '/login')
 	}
 
 	return(
@@ -81,7 +80,7 @@ const SignUp = props => {
 }
 
 const mapDispatchToProps = {
-	setRegister,
+	registerUser,
 }
 
 export default connect(null, mapDispatchToProps)(SignUp)
