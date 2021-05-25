@@ -31,7 +31,7 @@ const SignUp = props => {
 		<>
 			<section className="SignUp">
 				<div className="Back-btn">
-					<button onClick={ () => history.back() } type="button">
+					<button type="button" onClick={ () => history.back() } >
 						back
 					</button>
 				</div>

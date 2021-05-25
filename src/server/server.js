@@ -132,28 +132,27 @@ app.post('/auth/sign-in', async (req, res, next) => {
 	})(req, res, next)
 })
 
-app.post('/auth/sign-up', async (req, res, next) => {
-	const { body: user } = req
+app.post("/auth/sign-up", async function (req, res, next) {
+	const { body: user } = req;
 
-	try {
-		const userData = await axios({
-			url: `${process.env.API_URL}/api/auth/sign-up`,
-			method: 'post',
-			data: {
-				'email': user.email,
-				'name': user.name,
-				'password': user.password
-			}
-		})
-
-		res.status(201).json({
-			name: req.body.name,
-			email: req.body.email,
-			id: userData.data.id
-		})
-	} catch(err) {
-		next(err)
-	}
+  	try {
+   		const userData = await axios({
+      		url: `${precess.env.API_URL}/api/auth/sign-up`,
+      		method: "post",
+      		data: {
+        		'email': user.email,
+        		'name': user.name,
+        		'password': user.password
+      		}
+    	})
+    	res.status(201).json({
+      		name: req.body.name,
+      		email: req.body.email,
+      		id: userData.data.id
+    	})
+  } catch (error) {
+    	next(error)
+  }
 })
 
 app.get('*', renderApp)
